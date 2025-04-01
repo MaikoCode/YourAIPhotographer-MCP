@@ -1,0 +1,47 @@
+{
+  "name": "your-ai-photographer",
+  "version": "1.0.0",
+  "description": "MCP server for YourAIPhotographer - Generate custom images with AI models",
+  "main": "dist/server.js",
+  "type": "module",
+  "bin": {
+    "your-ai-photographer": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "axios": "^1.8.4",
+    "open": "^10.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "start": "node --loader ts-node/esm server.ts",
+    "build": "tsc",
+    "start:js": "node dist/server.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai",
+    "photography",
+    "mcp",
+    "claude",
+    "image-generation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-ai-photographer.git"
+  }
+}
