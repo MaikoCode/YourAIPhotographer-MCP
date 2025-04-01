@@ -1,6 +1,6 @@
 # YourAIPhotographer MCP Server
 
-An MCP (Model Context Protocol) server that allows Claude to generate custom images using YourAIPhotographer's API.
+Integrates with [YourAIPhotographer](https://youraiphotographer.com) to enable MCP clients (e.g., Claude Desktop) to generate custom images using your trained models.
 
 ## Installation
 
@@ -8,54 +8,41 @@ An MCP (Model Context Protocol) server that allows Claude to generate custom ima
 npm install -g youraiphotographer-mcp
 ```
 
+Requires Node.js 16.x+.
+
+## Configuration
+
+1. Obtain an API key from [YourAIPhotographer API Keys](https://youraiphotographer.com/api-keys).
+2. Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "YourAIPhotographer": {
+      "command": "youraiphotographer-mcp",
+      "env": {
+        "YOURAIPHOTOGRAPHER_API_KEY": "<API-KEY>"
+      }
+    }
+  }
+}
+```
+
+Replace `<API-KEY>` with your key. Restart Claude Desktop.
+
 ## Usage
 
-### Set up your API key
+### Using with Claude
 
-Before using the tool, you need to set your YourAIPhotographer API key as an environment variable:
+Once running, use the `generate-custom-image` tool in Claude with these parameters:
 
-```bash
-# On Linux/macOS
-export YOURAIPHOTOGRAPHER_API_KEY=your_api_key_here
+- `modelName`: Name of the model for image generation.
+- `prompt`: Description of the desired image.
+- `output_format` (optional): `'png'` or `'jpg'` (defaults to `'png'`).
+- `aspect_ratio` (optional): `'1:1'`, `'16:9'`, `'4:3'`, `'9:16'`, etc. (defaults to `'1:1'`).
 
-# On Windows (Command Prompt)
-set YOURAIPHOTOGRAPHER_API_KEY=your_api_key_here
-
-# On Windows (PowerShell)
-$env:YOURAIPHOTOGRAPHER_API_KEY="your_api_key_here"
-```
-
-### Start the MCP server
-
-To start the MCP server, run:
-
-```bash
-npx your-ai-photographer
-```
-
-This will start the MCP server, making it available for Claude to use.
-
-## Using with Claude
-
-Once the MCP server is running, you can use it with Claude by referring to the "generate-custom-image" tool.
-
-Claude can generate images by using this tool with parameters:
-
-- `modelName`: The name of the model to use for image generation
-- `prompt`: The prompt describing the image to generate
-- `output_format` (optional): Image format - 'png' or 'jpg' (defaults to 'png')
-- `aspect_ratio` (optional): Aspect ratio - '1:1', '16:9', '4:3', '9:16', etc. (defaults to '1:1')
-
-## Development
-
-To build from source:
-
-```bash
-git clone https://github.com/yourusername/your-ai-photographer.git
-cd your-ai-photographer
-npm install
-npm run build
-```
+**Example Prompt**:  
+"Generate me a custom image with the model `<name-of-your-model>` with the prompt: headshot of model, sitting at a desk, at a (office), shirt and tie and suit pants"
 
 ## License
 
