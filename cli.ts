@@ -2,12 +2,6 @@
 
 import { startServer } from "./server.js";
 
-// Display a welcome message
-console.log("┌──────────────────────────────────────────┐");
-console.log("│       YourAIPhotographer MCP Server      │");
-console.log("└──────────────────────────────────────────┘");
-console.log("Starting MCP server...");
-
 // Check if API key is set
 const apiKey = process.env.YOURAIPHOTOGRAPHER_API_KEY;
 if (!apiKey) {

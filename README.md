@@ -5,7 +5,7 @@ An MCP (Model Context Protocol) server that allows Claude to generate custom ima
 ## Installation
 
 ```bash
-npm install -g your-ai-photographer
+npm install -g youraiphotographer-mcp
 ```
 
 ## Usage

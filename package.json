@@ -1,11 +1,11 @@
 {
-  "name": "your-ai-photographer",
-  "version": "1.0.0",
+  "name": "youraiphotographer-mcp",
+  "version": "1.0.2",
   "description": "MCP server for YourAIPhotographer - Generate custom images with AI models",
   "main": "dist/server.js",
   "type": "module",
   "bin": {
-    "your-ai-photographer": "./dist/cli.js"
+    "youraiphotographer-mcp": "./dist/cli.js"
   },
   "files": [
     "dist",
@@ -42,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/your-ai-photographer.git"
+    "url": "https://github.com/MaikoCode/YourAIPhotographer-MCP"
   }
 }
